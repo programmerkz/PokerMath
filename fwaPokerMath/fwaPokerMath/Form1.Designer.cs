@@ -41,6 +41,8 @@
             this.lblIterCount = new System.Windows.Forms.Label();
             this.nudIterCount = new System.Windows.Forms.NumericUpDown();
             this.btnGetStatistic = new System.Windows.Forms.Button();
+            this.btnRollDice = new System.Windows.Forms.Button();
+            this.chkDiceDouble = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudDiceNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFaceNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudIterCount)).BeginInit();
@@ -158,7 +160,7 @@
             // lblGetStatistic
             // 
             this.lblGetStatistic.AutoSize = true;
-            this.lblGetStatistic.Location = new System.Drawing.Point(12, 152);
+            this.lblGetStatistic.Location = new System.Drawing.Point(12, 188);
             this.lblGetStatistic.Name = "lblGetStatistic";
             this.lblGetStatistic.Size = new System.Drawing.Size(111, 13);
             this.lblGetStatistic.TabIndex = 9;
@@ -167,7 +169,7 @@
             // lblIterCount
             // 
             this.lblIterCount.AutoSize = true;
-            this.lblIterCount.Location = new System.Drawing.Point(12, 177);
+            this.lblIterCount.Location = new System.Drawing.Point(12, 213);
             this.lblIterCount.Name = "lblIterCount";
             this.lblIterCount.Size = new System.Drawing.Size(59, 13);
             this.lblIterCount.TabIndex = 10;
@@ -180,7 +182,7 @@
             0,
             0,
             0});
-            this.nudIterCount.Location = new System.Drawing.Point(77, 175);
+            this.nudIterCount.Location = new System.Drawing.Point(77, 211);
             this.nudIterCount.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -203,18 +205,43 @@
             // 
             // btnGetStatistic
             // 
-            this.btnGetStatistic.Location = new System.Drawing.Point(12, 201);
+            this.btnGetStatistic.Image = global::fwaPokerMath.Properties.Resources.Do;
+            this.btnGetStatistic.Location = new System.Drawing.Point(12, 237);
             this.btnGetStatistic.Name = "btnGetStatistic";
             this.btnGetStatistic.Size = new System.Drawing.Size(75, 23);
             this.btnGetStatistic.TabIndex = 12;
             this.btnGetStatistic.Text = "Расчет";
+            this.btnGetStatistic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGetStatistic.UseVisualStyleBackColor = true;
+            this.btnGetStatistic.Click += new System.EventHandler(this.btnGetStatistic_Click);
+            // 
+            // btnRollDice
+            // 
+            this.btnRollDice.Location = new System.Drawing.Point(15, 116);
+            this.btnRollDice.Name = "btnRollDice";
+            this.btnRollDice.Size = new System.Drawing.Size(86, 23);
+            this.btnRollDice.TabIndex = 13;
+            this.btnRollDice.Text = "Кинуть кости";
+            this.btnRollDice.UseVisualStyleBackColor = true;
+            this.btnRollDice.Click += new System.EventHandler(this.btnRollDice_Click);
+            // 
+            // chkDiceDouble
+            // 
+            this.chkDiceDouble.AutoSize = true;
+            this.chkDiceDouble.Location = new System.Drawing.Point(12, 145);
+            this.chkDiceDouble.Name = "chkDiceDouble";
+            this.chkDiceDouble.Size = new System.Drawing.Size(102, 17);
+            this.chkDiceDouble.TabIndex = 14;
+            this.chkDiceDouble.Text = "с учетом дубля";
+            this.chkDiceDouble.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(576, 364);
+            this.Controls.Add(this.chkDiceDouble);
+            this.Controls.Add(this.btnRollDice);
             this.Controls.Add(this.btnGetStatistic);
             this.Controls.Add(this.nudIterCount);
             this.Controls.Add(this.lblIterCount);
@@ -253,6 +280,8 @@
         private System.Windows.Forms.Label lblIterCount;
         private System.Windows.Forms.NumericUpDown nudIterCount;
         private System.Windows.Forms.Button btnGetStatistic;
+        private System.Windows.Forms.Button btnRollDice;
+        private System.Windows.Forms.CheckBox chkDiceDouble;
     }
 }
 
