@@ -30,6 +30,16 @@ namespace fwaPokerMath
             _faceValue = (byte)rnd.Next(1, FaceNumber + 1);
             return FaceValue;
         }
+
+        public byte Roll(Random rnd)
+        {
+            if (rnd == null) throw new ArgumentNullException("Не возможно сделать бросок кости, т.к. передан null генератор случайных числел");
+            else
+            {
+                _faceValue = (byte)rnd.Next(1, FaceNumber + 1);
+                return FaceValue;
+            }
+        }
     }
 
     class Dice
@@ -74,27 +84,49 @@ namespace fwaPokerMath
             }
         }
 
-        public uint Roll()
+        public uint Roll(Random rnd)
         {
-            uint diceSum = 0;
+            if (rnd == null) throw new ArgumentNullException("Не возможно сделать бросок кости, т.к. не передан генератор случайных числел");
+            else
+            {
+                uint diceSum = 0;
 
-            for (byte i = 0; i < DiceNumber; i++)
-                diceSum += Dices[i].Roll();
+                for (byte i = 0; i < DiceNumber; i++)
+                    diceSum += Dices[i].Roll(rnd);
 
-            return diceSum;
+                return diceSum;
+            }
         }
 
-        public uint RollDoble()
+        public uint RollDoble(Random rnd)
         {
-            uint diceSum = 0;
-
-            for (byte i = 0; i < DiceNumber; i++)
-                diceSum += Dices[i].Roll();
-
-            if (isAllFacesAreSame())
-                return diceSum * DiceNumber;    // если все грани одинаковые, то значение равно сумме выпавших косте, умноженному на количество кубиков
+            if (rnd == null) throw new ArgumentNullException("Не возможно сделать бросок кости, т.к. не передан генератор случайных числел");
             else
-                return diceSum;
+            {
+                uint diceSum = 0;
+
+                for (byte i = 0; i < DiceNumber; i++)
+                    diceSum += Dices[i].Roll(rnd);
+
+                if (isAllFacesAreSame())
+                    return diceSum * DiceNumber;    // если все грани одинаковые, то значение равно сумме выпавших косте, умноженному на количество кубиков
+                else
+                    return diceSum;
+            }
+        }
+
+        public string PrintValue()
+        {
+            if (Dices == null) throw new NullReferenceException("Набор костей не инициализирован");
+            else
+            {
+                string res = "";
+
+                for (byte i = 0; i < DiceNumber; i++)
+                    res += $"";
+
+                return res;
+            }
         }
     }
 }
