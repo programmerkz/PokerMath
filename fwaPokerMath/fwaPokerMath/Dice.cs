@@ -20,6 +20,12 @@ namespace fwaPokerMath
             else
                 FaceNumber = faceNumber;
         }
+
+        public byte Roll()
+        {
+            Random rnd = new Random();
+            return (byte)rnd.Next(1, FaceNumber + 1);
+        }
     }
 
     class Dice
