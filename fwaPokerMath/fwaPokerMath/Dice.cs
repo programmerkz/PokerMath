@@ -40,8 +40,8 @@ namespace fwaPokerMath
 
         public Dice(byte faceNumber, byte diceNumber)
         {
-            if (faceNumber < 1) throw new ArgumentException("Количество граней на костях не может быть меньше 1", "faceNumber");
-            else if (diceNumber < 1) throw new ArgumentException("Количество костей не может быть меньше 1", "diceNumber");
+            //if (faceNumber < 0) throw new ArgumentException("Количество граней на костях не может быть меньше 1", "faceNumber");
+            if (diceNumber < 1) throw new ArgumentException("Количество костей не может быть меньше 1", "diceNumber");
             else
             {
                 DiceNumber = diceNumber;
@@ -55,7 +55,7 @@ namespace fwaPokerMath
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Не возможно создать набор костей", ex);
+                    throw new Exception($"Не возможно создать набор костей \r\n{ex.Message}", ex);
                 }
             }
         }
