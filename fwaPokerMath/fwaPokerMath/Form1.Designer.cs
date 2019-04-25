@@ -28,13 +28,140 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnCreateDice = new System.Windows.Forms.Button();
+            this.nudDiceNumber = new System.Windows.Forms.NumericUpDown();
+            this.lblDiceNumber = new System.Windows.Forms.Label();
+            this.lblFaceNumber = new System.Windows.Forms.Label();
+            this.nudFaceNumber = new System.Windows.Forms.NumericUpDown();
+            this.txtConsole = new System.Windows.Forms.TextBox();
+            this.chkPrintException = new System.Windows.Forms.CheckBox();
+            this.txtClearConsole = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDiceNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFaceNumber)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btnCreateDice
+            // 
+            this.btnCreateDice.Location = new System.Drawing.Point(15, 73);
+            this.btnCreateDice.Name = "btnCreateDice";
+            this.btnCreateDice.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateDice.TabIndex = 0;
+            this.btnCreateDice.Text = "Создать";
+            this.btnCreateDice.UseVisualStyleBackColor = true;
+            this.btnCreateDice.Click += new System.EventHandler(this.btnCreateDice_Click);
+            // 
+            // nudDiceNumber
+            // 
+            this.nudDiceNumber.Location = new System.Drawing.Point(125, 7);
+            this.nudDiceNumber.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nudDiceNumber.Name = "nudDiceNumber";
+            this.nudDiceNumber.Size = new System.Drawing.Size(42, 20);
+            this.nudDiceNumber.TabIndex = 1;
+            this.nudDiceNumber.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // lblDiceNumber
+            // 
+            this.lblDiceNumber.AutoSize = true;
+            this.lblDiceNumber.Location = new System.Drawing.Point(12, 9);
+            this.lblDiceNumber.Name = "lblDiceNumber";
+            this.lblDiceNumber.Size = new System.Drawing.Size(107, 13);
+            this.lblDiceNumber.TabIndex = 2;
+            this.lblDiceNumber.Text = "Количество костей:";
+            // 
+            // lblFaceNumber
+            // 
+            this.lblFaceNumber.AutoSize = true;
+            this.lblFaceNumber.Location = new System.Drawing.Point(12, 35);
+            this.lblFaceNumber.Name = "lblFaceNumber";
+            this.lblFaceNumber.Size = new System.Drawing.Size(107, 13);
+            this.lblFaceNumber.TabIndex = 3;
+            this.lblFaceNumber.Text = "Количество граней:";
+            // 
+            // nudFaceNumber
+            // 
+            this.nudFaceNumber.Location = new System.Drawing.Point(125, 33);
+            this.nudFaceNumber.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nudFaceNumber.Name = "nudFaceNumber";
+            this.nudFaceNumber.Size = new System.Drawing.Size(42, 20);
+            this.nudFaceNumber.TabIndex = 4;
+            this.nudFaceNumber.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // txtConsole
+            // 
+            this.txtConsole.Location = new System.Drawing.Point(173, 7);
+            this.txtConsole.Multiline = true;
+            this.txtConsole.Name = "txtConsole";
+            this.txtConsole.Size = new System.Drawing.Size(391, 322);
+            this.txtConsole.TabIndex = 5;
+            // 
+            // chkPrintException
+            // 
+            this.chkPrintException.AutoSize = true;
+            this.chkPrintException.Location = new System.Drawing.Point(424, 335);
+            this.chkPrintException.Name = "chkPrintException";
+            this.chkPrintException.Size = new System.Drawing.Size(140, 17);
+            this.chkPrintException.TabIndex = 6;
+            this.chkPrintException.Text = "Выводить исключения";
+            this.chkPrintException.UseVisualStyleBackColor = true;
+            // 
+            // txtClearConsole
+            // 
+            this.txtClearConsole.Location = new System.Drawing.Point(173, 331);
+            this.txtClearConsole.Name = "txtClearConsole";
+            this.txtClearConsole.Size = new System.Drawing.Size(75, 23);
+            this.txtClearConsole.TabIndex = 7;
+            this.txtClearConsole.Text = "Очистить";
+            this.txtClearConsole.UseVisualStyleBackColor = true;
+            this.txtClearConsole.Click += new System.EventHandler(this.txtClearConsole_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(576, 364);
+            this.Controls.Add(this.txtClearConsole);
+            this.Controls.Add(this.chkPrintException);
+            this.Controls.Add(this.txtConsole);
+            this.Controls.Add(this.nudFaceNumber);
+            this.Controls.Add(this.lblFaceNumber);
+            this.Controls.Add(this.lblDiceNumber);
+            this.Controls.Add(this.nudDiceNumber);
+            this.Controls.Add(this.btnCreateDice);
+            this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.nudDiceNumber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudFaceNumber)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnCreateDice;
+        private System.Windows.Forms.NumericUpDown nudDiceNumber;
+        private System.Windows.Forms.Label lblDiceNumber;
+        private System.Windows.Forms.Label lblFaceNumber;
+        private System.Windows.Forms.NumericUpDown nudFaceNumber;
+        private System.Windows.Forms.TextBox txtConsole;
+        private System.Windows.Forms.CheckBox chkPrintException;
+        private System.Windows.Forms.Button txtClearConsole;
     }
 }
 
