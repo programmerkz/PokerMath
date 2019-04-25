@@ -7,7 +7,10 @@ namespace fwaPokerMath
 {
     class SingleDice
     {
+        private byte _faceValue;
+
         public byte FaceNumber { get; }
+        public byte FaceValue { get { return _faceValue; }}
 
         public SingleDice()
         {
@@ -24,7 +27,8 @@ namespace fwaPokerMath
         public byte Roll()
         {
             Random rnd = new Random();
-            return (byte)rnd.Next(1, FaceNumber + 1);
+            _faceValue = (byte)rnd.Next(1, FaceNumber + 1);
+            return FaceValue;
         }
     }
 
@@ -56,6 +60,20 @@ namespace fwaPokerMath
             }
         }
 
+        public bool isAllFacesAreSame()
+        {
+            if (Dices == null) throw new NullReferenceException("Набор костей не инициализирован");
+            else if (Dices.Count == 1) return false; // логичнее именно так, т.е. когда набор костей - это одна игральная кость, то это по-любому НЕ ДУБЛЬ
+            else
+            {
+                for (byte i = 1; i < DiceNumber; i++)
+                    if (Dices[0].FaceValue != Dices[i].FaceValue)
+                        return false; // как только мы нашли кости с разными значениями граней, то это уже НЕ ДУБЛЬ
+
+                return true; // если выподнение кода пришло в эту точку, то значит различий выявлено не было, а значит это ДУБЛЬ
+            }
+        }
+
         public uint Roll()
         {
             uint diceSum = 0;
@@ -64,6 +82,19 @@ namespace fwaPokerMath
                 diceSum += Dices[i].Roll();
 
             return diceSum;
+        }
+
+        public uint RollDoble()
+        {
+            uint diceSum = 0;
+
+            for (byte i = 0; i < DiceNumber; i++)
+                diceSum += Dices[i].Roll();
+
+            if (isAllFacesAreSame())
+                return diceSum * DiceNumber;    // если все грани одинаковые, то значение равно сумме выпавших косте, умноженному на количество кубиков
+            else
+                return diceSum;
         }
     }
 }
