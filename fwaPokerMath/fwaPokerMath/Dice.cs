@@ -44,12 +44,26 @@ namespace fwaPokerMath
                 FaceNumber = faceNumber;
                 Dices = new List<SingleDice>();
 
-                for (byte i = 0; i < DiceNumber; i++)
+                try
                 {
-                    SingleDice die = new SingleDice(FaceNumber);
-
+                    for (byte i = 0; i < DiceNumber; i++)
+                        Dices.Add(new SingleDice(FaceNumber));
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Не возможно создать набор костей", ex);
                 }
             }
+        }
+
+        public uint Roll()
+        {
+            uint diceSum = 0;
+
+            for (byte i = 0; i < DiceNumber; i++)
+                diceSum += Dices[i].Roll();
+
+            return diceSum;
         }
     }
 }
